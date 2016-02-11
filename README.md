@@ -1,4 +1,4 @@
-Deployed at http://signups.art742b.meteor.com
+Deployed at http://signups.art742b.yale.meteor.com
 
 To run the app in Cloud9, open a terminal and type:
    
