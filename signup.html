@@ -1,0 +1,34 @@
+<head>
+  <title>Signups</title>
+</head>
+
+<body>
+  
+  <h1>Signups February 11</h1>
+  
+  {{#each signups}}
+    {{> signup}}
+  {{/each}}
+  
+  <hr>
+  
+  {{> new}}
+  
+</body>
+
+<template name="signup">
+  <div class="signup" style="color: {{color}}">
+    <b>{{name}}</b> <i>{{github}}</i> {{time}}
+    <a href="#" class="delete">Delete</a>
+  </div>
+</template>
+
+<template name="new">
+  <form>
+    <input type="text" name="name" placeholder="Name" autofocus>
+    <input type="text" name="color" placeholder="Color">
+    <input type="text" name="github" placeholder="GitHub ID">
+    <input type="text" name="time" placeholder="Signup time">
+    <input type="submit">
+  </form>
+</template>
