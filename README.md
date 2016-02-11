@@ -24,6 +24,10 @@ Or see all records:
 
     db.signups.find();
     
+Permanently delete all the records in your collection:
+
+    db.signups.drop();
+    
 Remember that `signups` is the name of our collection; you may name your collection
 differently.
 
