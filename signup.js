@@ -13,11 +13,29 @@ if (Meteor.isClient) {
     // The signups helper returns a list of the signups.
     // Find all the signups in the database and return them.
     signups: function() {
-        return Signups.find({}, {sort: {time: 1}});  
+        return Signups.find({}, {sort: {time: 1}}); 
     }
      
-  }); 
-
+  });
+  
+  Template.signup.helpers({
+    
+    pattern: function() {
+      
+      var pattern = '... ';
+      var i = 0;
+      while (i < this.github.length) {
+        pattern += '<u>' + this.github.charAt(i) + '</u>';
+        pattern += this.name.charAt(i);
+        i += 1;
+      }
+      pattern += ' ...';
+      return pattern;
+      
+    }
+    
+  });
+  
   Template.signup.events({
     
     // This function is called whenever there is a click
@@ -25,7 +43,7 @@ if (Meteor.isClient) {
     "click .delete": function(event) {
       
       // Tell the browser not to do its default behavior 
-      // (which would reload the page)
+      // (which would try to link somewhere)
       event.preventDefault();
 
       // Using the Mongo id of this template's object, tell Mongo

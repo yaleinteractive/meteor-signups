@@ -4,7 +4,7 @@
 
 <body>
   
-  <h1>Signups February 11</h1>
+  <h1>Signups February 18</h1>
   
   {{#each signups}}
     {{> signup}}
@@ -20,6 +20,9 @@
   <div class="signup" style="color: {{color}}">
     <b>{{name}}</b> <i>{{github}}</i> {{time}}
     <a href="#" class="delete">Delete</a>
+    <div>
+      {{{pattern}}}
+    </div>
   </div>
 </template>
 
