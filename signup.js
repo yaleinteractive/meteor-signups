@@ -8,6 +8,8 @@ var Signups = new Mongo.Collection("signups");
 
 if (Meteor.isClient) {
   
+  Session.setDefault('signing_up', false);
+
   Template.body.helpers({
      
     // The signups helper returns a list of the signups.
@@ -36,6 +38,14 @@ if (Meteor.isClient) {
     
   });
   
+  Template.new.helpers({
+    
+    signing_up: function() {
+      return Session.get('signing_up');
+    }
+    
+  });
+
   Template.signup.events({
     
     // This function is called whenever there is a click
@@ -55,6 +65,10 @@ if (Meteor.isClient) {
   });
 
   Template.new.events({
+    
+    "click .show-new": function(event) {
+      Session.set('signing_up', true);
+    },
     
     // This function is called whenever there is a submit
     // event in the "new" template
@@ -82,8 +96,7 @@ if (Meteor.isClient) {
       form.github.value = '';
       form.time.value = '';
 
-      // Focus the name field
-      form.name.focus();
+      Session.set('signing_up', false);
       
     }
     
